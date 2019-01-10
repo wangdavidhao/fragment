@@ -72,7 +72,7 @@ public class FragmentSend extends Fragment {
         //Déclaration spéciale au fragment
         View view=inflater.inflate(R.layout.fragment_fragment_send, container, false);
         Button button1 = (Button)view.findViewById(R.id.button1);
-        TextView textView1 = (TextView)view.findViewById(R.id.textView1);
+        TextView textView1 = (TextView)view.findViewById(R.id.textView);
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
