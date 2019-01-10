@@ -8,11 +8,11 @@ import android.widget.TextView;
 import android.support.v4.app.Fragment;
 import android.net.Uri;
 
-public class MainActivity extends AppCompatActivity implements FragmentSend.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements FragmentSend.OnFragmentInteractionListener, Fragment_catch.OnFragmentInteractionListener{
 
 
-    private TextView text1;
     private FragmentSend fragment1;
+    private Fragment_catch fragment2;
 
 
 
@@ -22,12 +22,13 @@ public class MainActivity extends AppCompatActivity implements FragmentSend.OnFr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        text1=(TextView)findViewById(R.id.text_view_main);
         fragment1=new FragmentSend();
+        fragment2=new Fragment_catch();
 
 
         FragmentManager fragmentManager=getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.framelayout_main,fragment1).commit();
+        fragmentManager.beginTransaction().replace(R.id.frame_layout_catch,fragment2).commit();
 
 
     }
@@ -38,7 +39,11 @@ public class MainActivity extends AppCompatActivity implements FragmentSend.OnFr
     public void sendMessage(String message)
     {
 
-        text1.setText(message);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
 
