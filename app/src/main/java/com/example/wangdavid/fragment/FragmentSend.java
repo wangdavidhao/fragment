@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
@@ -60,19 +62,28 @@ public class FragmentSend extends Fragment {
         }
     }
 
+
+
+    ///On ouvre l'interface du fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_send, container, false);
+        //Déclaration spéciale au fragment
+        View view=inflater.inflate(R.layout.fragment_fragment_send, container, false);
+        Button button1 = (Button)view.findViewById(R.id.button1);
+        TextView textView1 = (TextView)view.findViewById(R.id.textView1);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                mListener.sendMessage("Bonjour");
+            }
+        });
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -101,8 +112,10 @@ public class FragmentSend extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
+
+    ///Mettre les prototypes des fonctions codées dans le mainActivity
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        void sendMessage(String message);
     }
 }
