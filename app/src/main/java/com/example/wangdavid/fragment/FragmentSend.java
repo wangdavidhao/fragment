@@ -3,12 +3,18 @@ package com.example.wangdavid.fragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+
+import java.util.Scanner;
+
 
 
 /**
@@ -19,6 +25,9 @@ import android.widget.TextView;
  * Use the {@link FragmentSend#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+
+
 public class FragmentSend extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +37,14 @@ public class FragmentSend extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private Button button1;
+    private TextView textView1;
+
+    private TextInputLayout input;
+    private EditText editText;
+
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -71,13 +88,17 @@ public class FragmentSend extends Fragment {
         // Inflate the layout for this fragment
         //Déclaration spéciale au fragment
         View view=inflater.inflate(R.layout.fragment_fragment_send, container, false);
-        Button button1 = (Button)view.findViewById(R.id.button1);
-        TextView textView1 = (TextView)view.findViewById(R.id.textView);
+
+        input=(TextInputLayout)view.findViewById(R.id.input);
+        input.setHint("Votre message");
+        button1 = (Button)view.findViewById(R.id.button1);
+        editText= (EditText)view.findViewById(R.id.editText);
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                mListener.sendMessage("Bonjour");
+                mListener.sendMessage(editText.getText().toString());
             }
         });
         return view;
