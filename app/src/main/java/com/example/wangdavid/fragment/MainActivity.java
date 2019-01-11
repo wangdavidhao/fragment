@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity implements FragmentSend.OnFr
     private FragmentSend fragment1;
     private Fragment_catch fragment2;
 
-    String message;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -33,18 +32,15 @@ public class MainActivity extends AppCompatActivity implements FragmentSend.OnFr
     }
 
 
-
     @Override
     public void sendMessage(String message)
     {
 
+        fragment2.setTextViewText(message);
+
+
     }
 
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 }
 
 

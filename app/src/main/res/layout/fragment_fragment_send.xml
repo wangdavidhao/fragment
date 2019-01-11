@@ -24,8 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
@@ -34,7 +33,7 @@
             android:layout_height="0dp"
             android:layout_margin="75dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:text="Envoyer" />
 
     </LinearLayout>
 
