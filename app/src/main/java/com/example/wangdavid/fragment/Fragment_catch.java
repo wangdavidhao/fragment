@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextClock;
+import android.widget.TextView;
 
 
 /**
@@ -27,7 +30,12 @@ public class Fragment_catch extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private TextView textview2;
+
+
+
     private OnFragmentInteractionListener mListener;
+
 
     public Fragment_catch() {
         // Required empty public constructor
@@ -64,15 +72,25 @@ public class Fragment_catch extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_catch, container, false);
+        View view=inflater.inflate(R.layout.fragment_fragment_catch, container, false);
+
+        textview2=(TextView)view.findViewById(R.id.textview_cacth);
+
+
+
+
+
+                mListener.catchMessage(textview2.getText().toString());
+                textview2.setText(textview2.getText().toString());
+
+
+
+
+
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {
@@ -103,6 +121,12 @@ public class Fragment_catch extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+        //void catchMessage(TextView text);
+        void catchMessage(String text);
+    }
+
+    public void setTextViewText(String message)
+    {
+        textview2.setText(message);
     }
 }
